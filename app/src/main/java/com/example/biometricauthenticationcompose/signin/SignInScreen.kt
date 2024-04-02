@@ -32,17 +32,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.example.biometricauthenticationcompose.R
 import com.example.biometricauthenticationcompose.common.CustomOutlinedTextField
 import com.example.biometricauthenticationcompose.home.HomeActivity
 import com.example.biometricauthenticationcompose.manager.CryptoManager
 import com.example.biometricauthenticationcompose.utils.BiometricHelper
 import com.example.biometricauthenticationcompose.utils.ENCRYPTED_FILE_NAME
+import com.example.biometricauthenticationcompose.utils.NavigationRoutes
 import com.example.biometricauthenticationcompose.utils.PREF_BIOMETRIC
 
 @Composable
@@ -103,7 +106,7 @@ fun SignInScreen(navController: NavHostController) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Sign In",
+            text = stringResource(R.string.sign_in_screen_title_text),
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),
             style = MaterialTheme.typography.headlineSmall,
@@ -111,7 +114,7 @@ fun SignInScreen(navController: NavHostController) {
         )
         Spacer(modifier = Modifier.height(8.dp))
         CustomOutlinedTextField(
-            label = "Enter Email Id",
+            label = stringResource(R.string.enter_email_id_text),
             text = emailId,
             isPassword = false,
             isError = isEmailError,
@@ -129,7 +132,7 @@ fun SignInScreen(navController: NavHostController) {
 
         Spacer(modifier = Modifier.padding(3.dp))
         CustomOutlinedTextField(
-            label = "Enter Password",
+            label = stringResource(R.string.enter_password_text),
             text = password,
             isPassword = true,
             isError = isPasswordError
@@ -140,7 +143,11 @@ fun SignInScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.padding(10.dp))
 
         AnimatedVisibility(visible = state is SignInState.InvalidCredentials) {
-            Text(text = "Invalid Email or Password", fontSize = 14.sp, color = Color.Red)
+            Text(
+                text = stringResource(R.string.invalid_email_or_password_text),
+                fontSize = 14.sp,
+                color = Color.Red
+            )
         }
 
         Button(
@@ -176,9 +183,9 @@ fun SignInScreen(navController: NavHostController) {
         }
 
         Spacer(modifier = Modifier.padding(10.dp))
-        TextButton(onClick = { navController.navigate("signup") }) {
+        TextButton(onClick = { navController.navigate(NavigationRoutes.SIGN_UP) }) {
             Text(
-                text = "Create An Account",
+                text = stringResource(R.string.sign_in_screen_create_account_text),
                 letterSpacing = 1.sp,
                 style = MaterialTheme.typography.labelLarge
             )

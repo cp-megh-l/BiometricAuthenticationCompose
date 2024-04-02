@@ -7,8 +7,8 @@ import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
+import com.example.biometricauthenticationcompose.R
 import com.example.biometricauthenticationcompose.manager.CryptoManager
-import com.example.biometricauthenticationcompose.signup.startHomeActivity
 import java.util.UUID
 
 object BiometricHelper {
@@ -33,7 +33,7 @@ object BiometricHelper {
         }
     }
 
-    fun getBiometricPrompt(
+    private fun getBiometricPrompt(
         context: FragmentActivity,
         onAuthSucceed: (BiometricPrompt.AuthenticationResult) -> Unit
     ): BiometricPrompt {
@@ -63,13 +63,13 @@ object BiometricHelper {
         return biometricPrompt
     }
 
-    fun getPromptInfo(): BiometricPrompt.PromptInfo {
+    private fun getPromptInfo(context: FragmentActivity): BiometricPrompt.PromptInfo {
         return BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Biometric Authentication App")
-            .setSubtitle("Log in using your biometric credential")
-            .setDescription("Please authenticate to log in to the app")
+            .setTitle(context.getString(R.string.biometric_prompt_title_text))
+            .setSubtitle(context.getString(R.string.biometric_prompt_subtitle_text))
+            .setDescription(context.getString(R.string.biometric_prompt_description_text))
             .setConfirmationRequired(false)
-            .setNegativeButtonText("Use password instead")
+            .setNegativeButtonText(context.getString(R.string.biometric_prompt_use_password_instead_text))
             .build()
     }
 
@@ -95,7 +95,7 @@ object BiometricHelper {
                 }
             }
         biometricPrompt.authenticate(
-            getPromptInfo(),
+            getPromptInfo(context),
             BiometricPrompt.CryptoObject(cypher)
         )
     }
@@ -120,7 +120,7 @@ object BiometricHelper {
                         onSuccess(plainText)
                     }
                 }
-            val promptInfo = getPromptInfo()
+            val promptInfo = getPromptInfo(context)
             biometricPrompt.authenticate(promptInfo, BiometricPrompt.CryptoObject(cypher))
         }
     }

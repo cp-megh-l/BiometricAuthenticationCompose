@@ -27,9 +27,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.biometricauthenticationcompose.R
 import com.example.biometricauthenticationcompose.manager.CryptoManager
 import com.example.biometricauthenticationcompose.ui.theme.BiometricAuthenticationComposeTheme
 import com.example.biometricauthenticationcompose.utils.BiometricHelper
@@ -82,7 +84,7 @@ fun HomeScreen() {
             TopAppBar(
                 title = {
                     Text(
-                        text = "Biometric Authentication",
+                        text = stringResource(R.string.home_screen_top_bar_title_text),
                         style = MaterialTheme.typography.titleMedium
                     )
                 },
@@ -108,7 +110,7 @@ fun HomeScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Show automatic biometric authentication",
+                        text = stringResource(R.string.home_screen_switch_view_text),
                         style = MaterialTheme.typography.bodyMedium
                     )
                     Switch(

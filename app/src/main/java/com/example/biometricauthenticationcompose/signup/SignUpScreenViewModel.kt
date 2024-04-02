@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SignUpScreenViewModel @Inject constructor(
     private val preferences: BiometricPreferences
-): ViewModel() {
+) : ViewModel() {
 
     val state = MutableStateFlow<SignUpState?>(null)
     val emailId = MutableStateFlow("")

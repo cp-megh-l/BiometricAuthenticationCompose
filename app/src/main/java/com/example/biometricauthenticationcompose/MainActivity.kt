@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.biometricauthenticationcompose.signin.SignInScreen
 import com.example.biometricauthenticationcompose.signup.SignUpScreen
 import com.example.biometricauthenticationcompose.ui.theme.BiometricAuthenticationComposeTheme
+import com.example.biometricauthenticationcompose.utils.NavigationRoutes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,14 +27,17 @@ class MainActivity : AppCompatActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "signin", builder = {
-                        composable("signin") {
-                            SignInScreen(navController)
-                        }
-                        composable("signup") {
-                            SignUpScreen()
-                        }
-                    })
+                    NavHost(
+                        navController = navController,
+                        startDestination = NavigationRoutes.SIGN_IN,
+                        builder = {
+                            composable(NavigationRoutes.SIGN_IN) {
+                                SignInScreen(navController)
+                            }
+                            composable(NavigationRoutes.SIGN_UP) {
+                                SignUpScreen()
+                            }
+                        })
                 }
             }
         }

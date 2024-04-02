@@ -11,7 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeActivityViewModel @Inject constructor(
     private val preferences: BiometricPreferences
-): ViewModel() {
+) : ViewModel() {
 
     val isBiometricEnabled = MutableStateFlow(false)
 

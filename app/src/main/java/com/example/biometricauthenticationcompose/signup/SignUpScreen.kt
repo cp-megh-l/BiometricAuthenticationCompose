@@ -30,11 +30,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.biometricauthenticationcompose.R
 import com.example.biometricauthenticationcompose.common.CustomOutlinedTextField
 import com.example.biometricauthenticationcompose.home.HomeActivity
 import com.example.biometricauthenticationcompose.utils.BiometricHelper
@@ -88,7 +90,7 @@ fun SignUpScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Create Account",
+            text = stringResource(R.string.sign_up_screen_create_account_text),
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),
             style = MaterialTheme.typography.headlineSmall,
@@ -96,7 +98,7 @@ fun SignUpScreen() {
         )
         Spacer(modifier = Modifier.height(8.dp))
         CustomOutlinedTextField(
-            label = "Enter Email Id",
+            label = stringResource(id = R.string.enter_email_id_text),
             text = emailId,
             isPassword = false,
             isError = isEmailError
@@ -106,7 +108,7 @@ fun SignUpScreen() {
 
         Spacer(modifier = Modifier.padding(3.dp))
         CustomOutlinedTextField(
-            label = "Enter Password",
+            label = stringResource(id = R.string.enter_password_text),
             text = password,
             isPassword = true,
             isError = isPasswordError
@@ -116,7 +118,7 @@ fun SignUpScreen() {
 
         Spacer(modifier = Modifier.padding(3.dp))
         CustomOutlinedTextField(
-            label = "Confirm Password",
+            label = stringResource(R.string.sign_up_screen_confirm_password_text),
             text = confirmPassword,
             isPassword = true,
             isError = isConfirmPasswordError
@@ -154,7 +156,11 @@ fun SignUpScreen() {
                     .padding(horizontal = 16.dp, vertical = 8.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Text(text = "Sign Up", fontSize = 20.sp, color = Color.White)
+                Text(
+                    text = stringResource(R.string.sign_up_screen_sign_up_btn_text),
+                    fontSize = 20.sp,
+                    color = Color.White
+                )
             }
         }
     }
