@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BiometricAuthenticationCompose</string>
+    <string name="app_name">BiometricAuthCompose</string>
     <string name="home_screen_top_bar_title_text">Biometric Authentication</string>
     <string name="home_screen_switch_view_text">Show automatic biometric authentication</string>
     <string name="sign_in_screen_title_text">Sign In</string>
