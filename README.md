@@ -1,7 +1,10 @@
 # Biometric Authentication In Compose
 
-For detailed implementation checkout: 
-[Medium Blog](https://www.google.com/)
+For detailed implementation checkout this [Blog](https://canopas.com/how-to-implement-biometric-authentication-with-jetpack-compose-and-aes-encryption-1b72cfccf4d4)
+
+
+
+https://github.com/cp-megh-l/BiometricAuthenticationCompose/assets/98312779/006d589b-66a1-4ab6-828e-ea69d10b288e
 
 
 
